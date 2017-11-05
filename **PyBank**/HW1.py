@@ -7,6 +7,10 @@ import csv
 
 import string
 
+count=0 # to consolidate both data
+count1=0# to consolidate both data line 113
+Grand_Total_revenue=0
+Grand_Total_months=0
 
 
 files =["budget_data_1.csv", "budget_data_2.csv"]
@@ -105,4 +109,41 @@ for file in files:
     print ("\n")
 
 
+ # now consilidated financial analysis
+    Grand_Total_revenue+=Total_revenue
+    Grand_Total_months +=Total_months
+    
+    if count < 1 :
+        G_month_value_high=month_value_high
+        G_max_increase=max_increase
+        count=2
+    elif G_max_increase < max_increase:
+        G_max_increase=max_increase
+        G_month_value_high=month_value_high
+
+    if count1 < 1 :
+        G_month_value_low=month_value_low
+        G_max_decrease=max_decrease
+        count1=2
+    elif G_max_decrease > max_decrease:
+        G_max_decrease=max_decrease
+        G_month_value_low=month_value_low
+
+Grand_average= round(Grand_Total_revenue/Grand_Total_months,)
+
+
+# now consilidated financial analysis
  
+print ("\n")
+    
+print("Consolidated Financial Analysis for both files")
+
+print("-------------------------------------------------")        
+print ("Total Months : %s " %(Grand_Total_months))
+print ("Grand Total Revenue is: $%s" %Grand_Total_revenue )
+print ("Average Revenue is: $%s"  %Grand_average)
+print("Greatest Increase in Revenue: %s  $%s" %(G_month_value_high, G_max_increase))
+print("Greatest Decrease in Revenue: %s  $%s" %(G_month_value_low,G_max_decrease))
+
+print("-------------------------------------------------")
+print ("\n")
