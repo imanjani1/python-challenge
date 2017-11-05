@@ -7,20 +7,21 @@ import csv
 
 import string
 
-Total_months = 0 #set initial value for month
-H_increase={} #create an empty dictionary for high increase
-H_decrease={} #create an empty dictionary for high decrease
 
-Total_revenue = 0 #set initial value for revenue
-max_change=0 
-min_change=0
-counter=0
 
 files =["budget_data_1.csv", "budget_data_2.csv"]
 
 for file in files:
 
+    Total_months = 0 #set initial value for month
+    H_increase={} #create an empty dictionary for high increase
+    H_decrease={} #create an empty dictionary for high decrease
 
+    Total_revenue = 0 #set initial value for revenue
+    max_change=0 
+    min_change=0
+    counter=0
+    
     with open(file,newline="") as csvfile:
 
 
@@ -32,7 +33,7 @@ for file in files:
 
 
         for x in csvreader:
-            if x[1].isdigit():
+            if 2>1:
                 
                 
 
@@ -48,14 +49,14 @@ for file in files:
 
                 elif counter < 2:
                     counter = 2
-                    max_change= changes - int(x[1]) # now we have first changes
-                    min_changes=changes - int(x[1]) # we set this one for min changes
+                    max_change= int(x[1])-changes # now we have first changes
+                    min_changes=int(x[1])-changes # we set this one for min changes
                     changes=int(x[1])
                 else:
                     
                     # we compare new row with previous row and the we reset change to the latest value in X[1]
                 
-                    changes = changes -int(x[1]) 
+                    changes = int(x[1])-changes
 
 
                     if changes > max_change:
@@ -93,14 +94,14 @@ for file in files:
     
     print("Financial Analysis for "+str(file))
 
-    print("-----------------------------------------------")        
+    print("-------------------------------------------------")        
     print ("Total Months : %s " %(Total_months))
     print ("Total Revenue is: $%s" %Total_revenue )
     print ("Average Revenue is: $%s"  %Average_revenue)
     print("Greatest Increase in Revenue: %s  $%s" %(month_value_high, max_increase))
     print("Greatest Decrease in Revenue: %s  $%s" %(month_value_low,max_decrease))
 
-    print("-----------------------------------------------")
+    print("-------------------------------------------------")
     print ("\n")
 
 
