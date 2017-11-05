@@ -1,6 +1,6 @@
 
 
-# Homework 2 , Pypol
+# Homework 2 -Python , Pypol
 
 # note : there is only one csv file for election
 
