@@ -7,11 +7,12 @@ import csv
 
 import string
 
-count=0 # to consolidate both data
-count1=0# to consolidate both data line 113
+count=0 # to consolidate both data line 113
+count1=0# to consolidate both data line 124
 Grand_Total_revenue=0
 Grand_Total_months=0
 
+# code and files are in the same folder
 
 files =["budget_data_1.csv", "budget_data_2.csv"]
 
